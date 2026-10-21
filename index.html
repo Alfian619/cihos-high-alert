@@ -32,7 +32,7 @@ th{background:#f0f0f0;font-weight:800;font-size:7.5px}
 }
 </style>
 </head><body>
-<div class="header"><img src="images.png"><br><b style="font-size:10px">HIGH ALERT | Ciputra Hospital Surabaya - v6.0 AUTO CETAK</b></div>
+<div class="header"><img src="images.png"><br><b style="font-size:10px">OBAT HIGH ALERT | Ciputra Hospital Surabaya</b></div>
 <div class="form">
 <div class="row"><div><label>Initial Pasien (B)</label><input id="b" value="B"></div><div><label>Nama / No RM (N)</label><input id="n" value="N"></div></div>
 <div class="row"><div><label>BB kg</label><input id="bb" type="number" value="70"></div><div><label>Obat</label><select id="obat" onchange="setObat()"><option value="100">Diltiazem 100 mg / 50 mL (2 mg/mL)</option><option value="8">Norepinephrine 8 mg / 50 mL</option><option value="200">Dopamine 200 mg / 50 mL</option><option value="250">Dobutamine 250 mg / 50 mL</option><option value="4">Epinephrine 4 mg / 50 mL</option><option value="50">Nicardipine 50 mg / 50 mL</option></select></div></div>
@@ -52,8 +52,7 @@ th{background:#f0f0f0;font-weight:800;font-size:7.5px}
 <button class="btn b-green" onclick="buat('spuit')">Tambah Label Spuit</button>
 <button class="btn b-red" onclick="document.getElementById('area').innerHTML=''">Bersihkan</button>
 <button class="btn b-green2" onclick="cetakPDF()">Cetak Semua / PDF</button>
-<button class="btn b-orange" onclick="exportWord()">📄 Export Word</button>
-<button class="btn b-purple" onclick="exportExcel()">📊 Export Excel Tabel</button>
+
 </div>
 <div id="area" class="area"></div>
 <script>
