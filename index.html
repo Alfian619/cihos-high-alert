@@ -1,146 +1,76 @@
-<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CIHOS v7.1 - EPI 8mg</title>
+<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CIHOS v8.2 Dual Logo</title>
 <style>
+*{box-sizing:border-box}
 body{margin:0;background:#0f5a6d;padding:10px;font-family:Arial,sans-serif}
-.header{background:#fff;border-radius:14px;padding:12px;text-align:center;margin-bottom:10px}
-.header img{height:60px;max-width:90%}
-.btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
-.btn{border:2px solid #fff;border-radius:12px;padding:11px;font-weight:900;color:#fff;cursor:pointer;font-size:10.5px}
-.b-blue{background:#2a9df4}.b-green{background:#2ecc71}.b-red{background:#e74c3c}.b-green2{background:#1abc9c}.b-orange{background:#ff8c00}.b-purple{background:#8e44ad}
+.header{background:#fff;border-radius:14px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.header img{height:48px;object-fit:contain;max-width:45%}
+.header .center{text-align:center;flex:1;line-height:1.1}
+.header .center b{font-size:10px;color:#000;display:block}
+.header .center span{font-size:8px;color:#666}
 .form{background:#fff;border-radius:12px;padding:12px;margin-bottom:10px}
-input,select{width:100%;padding:8px;border:1.5px solid #a0c4c4;border-radius:8px;margin-top:3px;box-sizing:border-box;font-size:12px}
+input,select{width:100%;padding:8px;border:1.5px solid #a0c4c4;border-radius:8px;margin-top:3px;font-size:12px;background:#fff}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:8px}label{font-weight:800;font-size:10px;display:block;margin-top:6px}
-.area{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-start}
-.label-titrasi{width:240px;background:#fff;border-radius:16px;overflow:hidden;border:2px solid #e0a070;box-shadow:0 2px 8px rgba(0,0,0,0.3);font-size:9px}
-.lt-head{background:#e9c39a;text-align:center;font-weight:900;padding:8px;font-size:12px}
-.lt-body{padding:6px}
-.lt-info{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:5px}
-.lt-info div{background:#f5f5f5;padding:3px 5px;border-radius:6px}
-.lt-info .yellow{background:#fff9c4}.lt-info .blue{background:#e1f5fe}.lt-info .pink{background:#fce4ec}.lt-info .green{background:#e8f5e9}
-table{width:100%;border-collapse:collapse;margin-top:4px}
-th,td{border:1px solid #999;padding:3px;text-align:center;font-size:8px}
-th{background:#f0f0f0;font-weight:800;font-size:7px}
-.lt-foot{border:2px solid #e74c3c;color:#e74c3c;text-align:center;font-weight:900;padding:4px;margin:6px;border-radius:12px;font-size:9px}
-.label-spuit{width:240px;background:#fff;border-radius:12px;overflow:hidden;border:2px solid #ccc;box-shadow:0 2px 8px rgba(0,0,0,0.3);font-size:9px}
-.ls-head{background:#fff;text-align:center;font-weight:900;padding:6px;font-size:11px;position:relative}
-.badge{position:absolute;right:6px;top:5px;background:#e74c3c;color:#fff;font-size:6px;padding:2px 5px;border-radius:4px}
-@media print{body{background:#fff!important;padding:0!important}.header,.form,.btns{display:none!important}.area{display:block!important}.label-titrasi,.label-spuit{page-break-inside:avoid;break-inside:avoid;margin-bottom:12px;box-shadow:none;border:1px solid #000}}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.btn{border:2px solid #fff;border-radius:12px;padding:11px;font-weight:900;color:#fff;cursor:pointer;font-size:11px}
+.b-blue{background:#2a9df4}.b-green{background:#2ecc71}.b-red{background:#e74c3c}.b-green2{background:#1abc9c}
+.area{display:flex;flex-wrap:wrap;gap:10px}
+.label-titrasi{width:245px;background:#fff;border-radius:14px;overflow:hidden;border:2px solid #e0a070;font-size:9px;color:#000}
+.lt-head{background:#e9c39a;text-align:center;font-weight:900;padding:8px}
+.lt-body{padding:6px}.lt-info{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:5px}
+.lt-info div{background:#f5f5f5;padding:3px 5px;border-radius:6px;font-size:8px}
+table{width:100%;border-collapse:collapse}th,td{border:1px solid #999;padding:3px;text-align:center;font-size:8px}th{background:#f0f0f0}
+.lt-foot{border:2px solid #e74c3c;color:#e74c3c;text-align:center;font-weight:900;padding:4px;margin:6px;border-radius:10px}
+@media print{body{background:#fff!important}.header,.form,.btns{display:none!important}}
 </style></head><body>
-<div class="header"><img src="images.png"><br><b style="font-size:10px">OBAT HIGH ALERT | Ciputra Hospital Surabaya</b></div>
+
+<!-- HEADER DUAL LOGO -->
+<div class="header">
+  <img src="images.png" onerror="this.src='https://alfian619.github.io/cihos-high-alert/images.png'">
+  <div class="center">
+    <b>OBAT HIGH ALERT</b>
+    <b>Ciputra Hospital Surabaya</b>
+    <span>Enhancing Life</span>
+  </div>
+  <img src="larsi.png" onerror="this.style.display='none'" style="height:52px">
+</div>
+
 <div class="form">
 <div class="row"><div><label>Initial Pasien (B)</label><input id="b" value="B"></div><div><label>Nama / No RM (N)</label><input id="n" value="N"></div></div>
 <div class="row"><div><label>BB kg</label><input id="bb" type="number" value="70"></div><div><label>Jenis Kelamin</label><select id="jk"><option>Laki-laki</option><option>Perempuan</option></select></div></div>
 <div class="row"><div><label>OBAT TITRASI</label><select id="obat" onchange="setObat()"></select></div><div><label>Total / Dosis</label><input id="total" readonly style="background:#e8f5e9;font-weight:800"></div></div>
-<div class="row"><div><label>Konsentrasi</label><input id="kons" readonly></div><div><label>PZ/D5 - Vol</label><select id="pe"><option>PZ/D5 - 50 ml</option><option>PZ - 50 ml</option><option>D5 - 50 ml</option><option>PZ/D5 - 100 ml</option></select></div></div>
+<div class="row"><div><label>Konsentrasi</label><input id="kons" readonly></div><div><label>PZ/D5 - Vol</label><select id="pe"><option>PZ/D5 - 50 ml</option><option>PZ/D5 - 40 ml</option><option>PZ/D5 - 20 ml</option><option>PZ - 50 ml</option><option>D5 - 50 ml</option></select></div></div>
 <div class="row"><div><label>Giver</label><input id="giver" placeholder="Nama Giver"></div><div><label>Checker</label><input id="checker" placeholder="Nama Checker"></div></div>
-<div class="row"><div><label>Satuan Dosis</label><input id="satuan" readonly style="background:#fff9c4;font-size:10px"></div><div><label>Vol Numerik mL (auto)</label><input id="vol" type="number" value="50" readonly style="background:#f0f0f0"></div></div>
+<div class="row"><div><label>Satuan Dosis</label><input id="satuan" readonly style="background:#fff9c4"></div><div><label>Vol Numerik mL (auto)</label><input id="vol" readonly style="background:#f0f0f0"></div></div>
 </div>
+
 <div class="btns">
 <button class="btn b-blue" onclick="buat('titrasi')">Label Titrasi</button>
 <button class="btn b-green" onclick="buat('spuit')">Tambah Label Spuit</button>
 <button class="btn b-red" onclick="document.getElementById('area').innerHTML=''">Bersihkan</button>
-<button class="btn b-green2" onclick="cetakPDF()">Cetak Semua / PDF</button>
+<button class="btn b-green2" onclick="window.print()">Cetak Semua / PDF</button>
 </div>
+
 <div id="area" class="area"></div>
+
 <script>
 const obatList=[
 {id:'diltiazem',nama:'Diltiazem',mg:100,vol:50,kons:'2 mg/ml',satuan:'mcg/kgBB/mnt',dosis:[1,2,3,4,5,6,7,8,9,10],totalTxt:'100 mg'},
 {id:'nicardipine_murni',nama:'Nicardipine Murni',mg:10,vol:10,kons:'1 mg/ml',satuan:'mcg/kgBB/mnt',dosis:[0.5,1,1.5,2,3,4,5,7.5,10,15],totalTxt:'10 mg'},
 {id:'nicardipine_oplos',nama:'Nicardipine Oplos',mg:10,vol:50,kons:'0.2 mg/ml',satuan:'mcg/kgBB/mnt',dosis:[0.5,1,1.5,2,3,4,5,7.5,10,15],totalTxt:'10 mg'},
 {id:'dobutamin',nama:'Dobutamin',mg:250,vol:50,kons:'5 mg/ml',satuan:'mcg/kgBB/mnt',dosis:[2,5,7.5,10,12.5,15,20,25,30],totalTxt:'250 mg'},
-{id:'ntg',nama:'Nitroglycerin (NTG)',mg:10,vol:50,kons:'0.2 mg/ml',satuan:'mcg/mnt',dosis:[5,10,20,30,40,50,75,100,150,200],isMcqMin:true,totalTxt:'10 mg'},
+{id:'ntg',nama:'NTG',mg:10,vol:50,kons:'0.2 mg/ml',satuan:'mcg/mnt',dosis:[5,10,20,30,40,50,75,100,150,200],isMcqMin:true,totalTxt:'10 mg'},
 {id:'dopamin',nama:'Dopamin',mg:200,vol:50,kons:'4 mg/ml',satuan:'mcg/kgBB/mnt',dosis:[2,5,7,10,12,15,20,25,30],totalTxt:'200 mg'},
-{id:'dexmed',nama:'Dexmedetomidine',mg:0.2,vol:50,kons:'4 mcg/ml',satuan:'mcg/kgBB/jam',dosis:[0.2,0.4,0.6,0.8,1.0,1.2,1.4,1.5],isMcqKgJam:true,totalTxt:'200 mcg (0.2 mg)'},
-{id:'ne',nama:'Norepinephrine (NE)',mg:8,vol:50,kons:'0.16 mg/ml',satuan:'mcg/kgBB/mnt',dosis:[0.01,0.03,0.05,0.08,0.1,0.15,0.2,0.3,0.5],totalTxt:'8 mg'},
-{id:'epi',nama:'Epinephrine (EPI)',mg:8,vol:50,kons:'0.16 mg/ml',satuan:'mcg/kgBB/mnt',dosis:[0.01,0.03,0.05,0.08,0.1,0.15,0.2,0.3,0.5],totalTxt:'8 mg'},
-{id:'vaso',nama:'Vasopressin',mg:20,vol:20,kons:'1 unit/ml',satuan:'unit/mnt',dosis:[0.01,0.02,0.03,0.04,0.06,0.08],isUnitMin:true,unitTxt:'Unit',totalTxt:'20 unit'},
-{id:'heparin',nama:'Heparin',mg:5000,vol:50,kons:'100 unit/ml',satuan:'unit/jam',dosis:[500,600,700,800,1000,1200,1500,2000],isUnitJam:true,unitTxt:'Unit',totalTxt:'5000 unit (1 ml)'}
+{id:'dexmed',nama:'Dexmedetomidine',mg:0.2,vol:50,kons:'4 mcg/ml',satuan:'mcg/kgBB/jam',dosis:[0.2,0.4,0.6,0.8,1.0,1.2,1.4,1.5],isMcqKgJam:true,totalTxt:'200 mcg'},
+{id:'ne',nama:'Norepinephrine (NE)',mg:8,vol:50,kons:'0.16 mg/ml',satuan:'nanogram/kgBB/mnt',dosis:[25,50,75,100,125,150,175,200,225,250,275,300],isNano:true,totalTxt:'8 mg'},
+{id:'epi',nama:'Epinephrine (EPI)',mg:8,vol:50,kons:'0.16 mg/ml',satuan:'nanogram/kgBB/mnt',dosis:[25,50,75,100,125,150,175,200,225,250,275,300],isNano:true,totalTxt:'8 mg'},
+{id:'vaso',nama:'Vasopressin',mg:20,vol:20,kons:'1 unit/ml',satuan:'unit/mnt',dosis:[0.01,0.02,0.03,0.04,0.06,0.08],isUnitMin:true,totalTxt:'20 unit / 20 ml'},
+{id:'heparin',nama:'Heparin',mg:5000,vol:50,kons:'100 unit/ml',satuan:'unit/jam',dosis:[500,600,700,800,1000,1200,1500,2000],isUnitJam:true,totalTxt:'5000 unit / 50 ml'}
 ];
-function initObat(){
- var sel=document.getElementById('obat');sel.innerHTML='';
- obatList.forEach(function(o){var opt=document.createElement('option');opt.value=o.id;opt.text=o.nama+' - '+o.totalTxt;sel.appendChild(opt);});
- setObat();
-}
-function getObatById(id){return obatList.find(function(o){return o.id===id});}
-function setObat(){
- var id=document.getElementById('obat').value;var o=getObatById(id);if(!o)return;
- document.getElementById('total').value=o.totalTxt;
- document.getElementById('kons').value=o.kons;
- document.getElementById('satuan').value=o.satuan;
- document.getElementById('vol').value=o.vol;
-}
-function hitungRate(o,dosis,bb,vol){
- var mg=o.mg;var mcgPerMl;
- if(o.id==='heparin'){mcgPerMl=mg/vol;}
- else if(o.id==='vaso'){mcgPerMl=mg/vol;}
- else if(o.id==='dexmed'){mcgPerMl=(mg*1000)/vol;}
- else{mcgPerMl=(mg*1000)/vol;}
- if(o.isMcqMin){return dosis*60/mcgPerMl;}
- if(o.isUnitMin){return dosis*60/mcgPerMl;}
- if(o.isUnitJam){return dosis/mcgPerMl;}
- if(o.isMcqKgJam){return (dosis*bb)/mcgPerMl;}
- return (dosis*bb*60)/mcgPerMl;
-}
-function buat(jenis){
- var b=document.getElementById('b').value||'B';var n=document.getElementById('n').value||'N';var bb=parseFloat(document.getElementById('bb').value)||70;
- var id=document.getElementById('obat').value;var o=getObatById(id);
- var total=document.getElementById('total').value;var kons=document.getElementById('kons').value;
- var pe=document.getElementById('pe').value;var vol=parseFloat(document.getElementById('vol').value)||o.vol;
- var giver=document.getElementById('giver').value||'-';var checker=document.getElementById('checker').value||'-';
- var now=new Date();var tgl=now.toLocaleDateString('id-ID')+', '+now.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
- var nama=o.nama.toUpperCase();
- var mcgPerMlTxt;
- if(o.id==='heparin'){mcgPerMlTxt=(o.mg/vol).toFixed(0)+' unit/mL';}
- else if(o.id==='vaso'){mcgPerMlTxt=(o.mg/vol).toFixed(2)+' unit/mL';}
- else if(o.id==='dexmed'){mcgPerMlTxt=((o.mg*1000)/vol).toFixed(1)+' mcg/mL';}
- else{mcgPerMlTxt=((o.mg*1000)/vol).toFixed(0)+' mcg/mL';}
- if(jenis==='titrasi'){
-   var rows='';for(var i=0;i<o.dosis.length;i++){var d=o.dosis[i];var rate=hitungRate(o,d,bb,vol);rows+='<tr><td>'+d+'</td><td>'+rate.toFixed(2)+'</td></tr>';}
-   var html='<div class="label-titrasi"><div class="lt-head">'+nama+'</div><div class="lt-body"><div class="lt-info"><div>🅱️ '+b+'</div><div>🆔 '+n+'</div><div class="yellow">⚖️ '+bb+' kg</div><div class="blue">👤 Giver: '+giver+'</div><div class="pink">💊 '+total+' - '+o.kons.split(' ')[0]+'</div><div class="green">✅ Checker: '+checker+'</div><div>💧 '+pe+'</div><div>🕒 '+tgl+'</div></div><table><tr><th>DOSIS<br>'+o.satuan+'</th><th>RATE<br>ml/jam</th></tr>'+rows+'</table><div style="font-size:7px;margin-top:4px;text-align:center">Kons: '+mcgPerMlTxt+' | '+o.nama+' | Ciputra Hospital</div><div class="lt-foot">HIGH ALERT<br>DOUBLE CHECK</div></div></div>';
-   var div=document.createElement('div');div.innerHTML=html;document.getElementById('area').appendChild(div.firstChild);
- }else{
-   var rate0=hitungRate(o,o.dosis[0],bb,vol);
-   var html='<div class="label-spuit"><div class="ls-head">'+nama+'<span class="badge">HIGH ALERT</span></div><div class="lt-body"><div class="lt-info"><div>🅱️ '+b+'</div><div>🆔 '+n+'</div><div class="yellow">⚖️ '+bb+' kg</div><div class="blue">'+giver+'</div><div class="pink">💊 '+total+'</div><div class="green">✅ '+checker+'</div><div>💧 '+pe+' - '+kons+'</div><div>🕒 '+tgl+'</div></div><div style="text-align:center;margin-top:4px;background:#e3f2fd;padding:3px;border-radius:5px">Awal: '+o.dosis[0]+' '+o.satuan+' = <b>'+rate0.toFixed(2)+' ml/jam</b></div></div></div>';
-   var div=document.createElement('div');div.innerHTML=html;document.getElementById('area').appendChild(div.firstChild);
- }
-}
-function cetakPDF(){
- if(document.getElementById('area').innerHTML.trim()==''){alert('Buat label dulu!');return;}
- var b=document.getElementById('b').value||'B';var obat=document.getElementById('obat').options[document.getElementById('obat').selectedIndex].text.split(' - ')[0];
- var tgl=new Date().toISOString().slice(0,10);
- document.title='CIHOS_'+b+'_'+obat+'_'+tgl;window.print();setTimeout(function(){document.title='CIHOS v7.1';},1000);
-}
-function exportWord(){
- var area=document.getElementById('area');if(area.innerHTML.trim()==''){alert('Buat label dulu!');return;}
- var b=document.getElementById('b').value||'B';var obat=document.getElementById('obat').options[document.getElementById('obat').selectedIndex].text.split(' - ')[0];
- var tgl=new Date().toISOString().slice(0,10);
- var header="<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>CIHOS</title><style>table{border-collapse:collapse}td,th{border:1px solid #000;padding:4px}</style></head><body><h2 style='text-align:center'>CIPUTRA HOSPITAL - CIHOS High Alert</h2><p>Tanggal: "+new Date().toLocaleString('id-ID')+" | Pasien: "+b+" | Obat: "+obat+"</p><hr>";
- var footer="<hr><p style='font-size:9px'>Dicetak otomatis dari https://alfian619.github.io/cihos-high-alert/</p></body></html>";
- var content=header+area.innerHTML+footer;
- var blob=new Blob(['\ufeff',content],{type:'application/msword'});
- var url=URL.createObjectURL(blob);
- var a=document.createElement('a');a.href=url;a.download='CIHOS_'+b+'_'+obat+'_'+tgl+'.doc';document.body.appendChild(a);a.click();setTimeout(function(){document.body.removeChild(a);URL.revokeObjectURL(url);},0);
-}
-function exportExcel(){
- var area=document.getElementById('area');if(area.innerHTML.trim()==''){alert('Buat label dulu!');return;}
- var b=document.getElementById('b').value||'B';var obat=document.getElementById('obat').options[document.getElementById('obat').selectedIndex].text.split(' - ')[0];
- var tgl=new Date().toISOString().slice(0,10);
- var tables=area.querySelectorAll('table');
- if(tables.length==0){alert('Buat Label Titrasi dulu!');return;}
- var csv="CIHOS - Ciputra Hospital\nPasien: "+b+" | Obat: "+obat+" | Tanggal: "+new Date().toLocaleString('id-ID')+"\n\n";
- tables.forEach(function(tbl,i){
-   csv+="Label "+(i+1)+" - "+obat+"\n";
-   var rows=tbl.querySelectorAll('tr');
-   rows.forEach(function(r){
-     var cols=r.querySelectorAll('th,td');
-     var line=[];cols.forEach(function(c){line.push(c.innerText.replace(/\n/g,' ').trim());});
-     csv+=line.join(";")+"\n";
-   });
-   csv+="\n";
- });
- var blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
- var url=URL.createObjectURL(blob);
- var a=document.createElement('a');a.href=url;a.download='CIHOS_'+b+'_'+obat+'_'+tgl+'.csv';document.body.appendChild(a);a.click();setTimeout(function(){document.body.removeChild(a);URL.revokeObjectURL(url);},0);
-}
-initObat();
+function initObat(){var s=document.getElementById('obat');s.innerHTML='';obatList.forEach(o=>{var op=document.createElement('option');op.value=o.id;op.text=o.nama+' - '+o.totalTxt;s.appendChild(op)});s.selectedIndex=0;setObat();}
+function getObatById(id){return obatList.find(o=>o.id===id)}
+function setObat(){var o=getObatById(document.getElementById('obat').value);if(!o)return;document.getElementById('total').value=o.totalTxt;document.getElementById('kons').value=o.kons;document.getElementById('satuan').value=o.satuan;document.getElementById('vol').value=o.vol;var pe=document.getElementById('pe');pe.value=o.id==='vaso'?'PZ/D5 - 20 ml':(o.id==='ne'||o.id==='epi'?'PZ/D5 - 40 ml':'PZ/D5 - 50 ml')}
+function hitungRate(o,d,bb,vol){var c=(o.id==='heparin'||o.id==='vaso')?(o.mg/vol):(o.mg*1000/vol);if(o.isNano)return (d/1000*bb*60)/c;if(o.isMcqMin||o.isUnitMin)return d*60/c;if(o.isUnitJam)return d/c;if(o.isMcqKgJam)return (d*bb)/c;return (d*bb*60)/c}
+function buat(jenis){var b=document.getElementById('b').value||'B',n=document.getElementById('n').value||'N',bb=parseFloat(document.getElementById('bb').value)||70,o=getObatById(document.getElementById('obat').value),pe=document.getElementById('pe').value,vol=parseFloat(document.getElementById('vol').value)||o.vol,g=document.getElementById('giver').value||'-',ch=document.getElementById('checker').value||'-',tgl=new Date().toLocaleString('id-ID',{hour:'2-digit',minute:'2-digit'}),nama=o.nama.toUpperCase();if(jenis==='titrasi'){var rows='';o.dosis.forEach(d=>{rows+=`<tr><td>${d}</td><td>${hitungRate(o,d,bb,vol).toFixed(2)}</td></tr>`});var h=`<div class="label-titrasi"><div class="lt-head">${nama}</div><div class="lt-body"><div class="lt-info"><div>🅱️ ${b}</div><div>🆔 ${n}</div><div>⚖️ ${bb}kg</div><div>👤 ${g}</div><div>💊 ${o.totalTxt}</div><div>✅ ${ch}</div><div>💧 ${pe}</div><div>🕒 ${tgl}</div></div><table><tr><th>DOSIS ${o.satuan}</th><th>RATE ml/jam</th></tr>${rows}</table><div class="lt-foot">HIGH ALERT</div></div></div>`;document.getElementById('area').insertAdjacentHTML('beforeend',h)}else{var h=`<div class="label-titrasi"><div class="lt-head">${nama}</div><div class="lt-body"><div class="lt-info"><div>🅱️ ${b}</div><div>🆔 ${n}</div><div>⚖️ ${bb}kg</div><div>💧 ${pe} - ${o.kons}</div></div><div style="text-align:center;background:#e3f2fd;padding:5px;border-radius:6px">Awal ${o.dosis[0]} ${o.satuan} = <b>${hitungRate(o,o.dosis[0],bb,vol).toFixed(2)} ml/jam</b></div></div></div>`;document.getElementById('area').insertAdjacentHTML('beforeend',h)}}
+document.addEventListener('DOMContentLoaded',initObat);
 </script>
 </body></html>
