@@ -52,8 +52,8 @@ const obatList=[
 {id:'dexmed',nama:'Dexmedetomidine',mg:0.2,vol:50,kons:'4 mcg/ml',satuan:'mcg/kgBB/jam',dosis:[0.2,0.4,0.6,0.8,1.0,1.2,1.4,1.5],isMcqKgJam:true,totalTxt:'200 mcg (0.2 mg)'},
 {id:'ne',nama:'Norepinephrine (NE)',mg:8,vol:50,kons:'0.16 mg/ml (160 mcg/ml)',satuan:'mcg/kgBB/mnt',dosis:[0.01,0.03,0.05,0.08,0.1,0.15,0.2,0.3,0.5],totalTxt:'8 mg'},
 {id:'epi',nama:'Epinephrine (EPI)',mg:8,vol:50,kons:'0.16 mg/ml (160 mcg/ml)',satuan:'mcg/kgBB/mnt',dosis:[0.01,0.03,0.05,0.08,0.1,0.15,0.2,0.3,0.5],totalTxt:'8 mg'},
-{id:'vaso',nama:'Vasopressin',mg:20,vol:50,kons:'0.4 unit/ml',satuan:'unit/mnt',dosis:[0.01,0.02,0.03,0.04,0.06,0.08],isUnitMin:true,unitTxt:'Unit',totalTxt:'20 unit'},
-{id:'heparin',nama:'Heparin',mg:12500,vol:50,kons:'250 unit/ml',satuan:'unit/jam',dosis:[500,600,700,800,1000,1200,1500,2000],isUnitJam:true,unitTxt:'Unit',totalTxt:'12500 unit (2.5 ml)'}
+{id:'vaso',nama:'Vasopressin',mg:20,vol:20,kons:'1 unit/ml',satuan:'unit/mnt',dosis:[0.01,0.02,0.03,0.04,0.06,0.08],isUnitMin:true,unitTxt:'Unit',totalTxt:'20 unit'},
+{id:'heparin',nama:'Heparin',mg:5000,vol:50,kons:'100 unit/ml',satuan:'unit/jam',dosis:[500,600,700,800,1000,1200,1500,2000],isUnitJam:true,unitTxt:'Unit',totalTxt:'12500 unit (2.5 ml)'}
 ];
 function initObat(){
  var sel=document.getElementById('obat');sel.innerHTML='';
