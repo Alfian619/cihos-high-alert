@@ -1,36 +1,127 @@
-<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CIHOS - Ciputra Hospital Surabaya</title><style>body{margin:0;background:#0a2f4a;padding:12px;font-family:Arial}.box{background:#fff;border-radius:14px;padding:14px;margin-bottom:12px;text-align:center}.btn{border:none;border-radius:25px;padding:14px;width:100%;margin-top:8px;color:#fff;font-weight:900}.blue{background:#2a7de1}.green{background:#1a9e5e}.red{background:#e23a3a}.lb{background:#fff;border:3px solid #d32f2f;border-radius:10px;padding:10px;margin-top:10px;text-align:left;font-size:11px;line-height:1.4}input,select{width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;margin-top:4px;box-sizing:border-box}.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}label{font-weight:800;font-size:11px;display:block;margin-top:8px;text-align:left}table{width:100%;border-collapse:collapse;margin-top:6px}th,td{border:1px solid #d32f2f;padding:4px;text-align:center;font-size:10px}th{background:#d32f2f;color:#fff}tr:nth-child(even){background:#ffeaea}.highlight{background:#fff176!important;font-weight:900}</style></head><body>
-<div class="box"><img src="images.png" style="height:65px;max-width:90%"><br><b style="font-size:11px">OBAT HIGH ALERT | Ciputra Hospital Surabaya</b></div>
-<div class="box" style="text-align:left"><b>👤 PASIEN</b><label>No RM</label><input id="rm" value="00123456"><label>Nama</label><input id="nm" value="John Doe"><div class="row"><div><label>BB (kg)</label><input id="bb" type="number" value="65"></div><div><label>Ruang</label><input id="rg" value="ICU Bed 04"></div></div></div>
-<div class="box" style="text-align:left"><b>💊 OBAT</b><select id="ob"><option value="8">Norepinephrine 8 mg / 50 mL</option><option value="200">Dopamine 200 mg / 50 mL</option><option value="250">Dobutamine 250 mg / 50 mL</option><option value="4">Epinephrine 4 mg / 50 mL</option></select><div class="row"><div><label>Total Obat</label><input id="to" value="8 mg"></div><div><label>PZ/D5</label><select id="pe"><option>PZ (NaCl 0.9%)</option><option>D5</option></select></div></div><div class="row"><div><label>Vol</label><select id="vo"><option>50 mL Spuit</option><option>50 mL</option><option>100 mL</option></select></div><div><label>Target mcg/kg/min</label><input id="ta" type="number" value="0.05" step="0.01"></div></div><label>Giver</label><input id="gv" value="a"><label>Checker</label><input id="ck" value="b"></div>
-<div class="box"><button class="btn blue" onclick="buat('titrasi')">Tabel Titrasi Obat</button><button class="btn green" onclick="buat('spuit')">💉 Label Spuit</button><button class="btn red" onclick="document.getElementById('area').innerHTML=''">🗑️ Hapus</button></div>
-<div id="area"></div>
+<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CIHOS v6.0 - Cetak Word & PDF</title>
+<style>
+body{margin:0;background:#0f5a6d;padding:10px;font-family:Arial,sans-serif}
+.header{background:#fff;border-radius:14px;padding:12px;text-align:center;margin-bottom:10px}
+.header img{height:60px;max-width:90%}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.btn{border:2px solid #fff;border-radius:12px;padding:12px;font-weight:900;color:#fff;cursor:pointer;font-size:11px}
+.b-blue{background:#2a9df4}.b-green{background:#2ecc71}.b-red{background:#e74c3c}.b-green2{background:#1abc9c}.b-orange{background:#ff8c00}.b-purple{background:#8e44ad}
+.form{background:#fff;border-radius:12px;padding:12px;margin-bottom:10px}
+input,select{width:100%;padding:8px;border:1.5px solid #a0c4c4;border-radius:8px;margin-top:3px;box-sizing:border-box;font-size:12px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}label{font-weight:800;font-size:10px;display:block;margin-top:6px}
+.area{display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-start}
+.label-titrasi{width:235px;background:#fff;border-radius:16px;overflow:hidden;border:2px solid #e0a070;box-shadow:0 2px 8px rgba(0,0,0,0.3);font-size:9px}
+.lt-head{background:#e9c39a;text-align:center;font-weight:900;padding:8px;font-size:13px}
+.lt-body{padding:6px}
+.lt-info{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:5px}
+.lt-info div{background:#f5f5f5;padding:3px 5px;border-radius:6px}
+.lt-info .yellow{background:#fff9c4}.lt-info .blue{background:#e1f5fe}.lt-info .pink{background:#fce4ec}.lt-info .green{background:#e8f5e9}
+table{width:100%;border-collapse:collapse;margin-top:4px}
+th,td{border:1px solid #999;padding:3px;text-align:center;font-size:8.5px}
+th{background:#f0f0f0;font-weight:800;font-size:7.5px}
+.lt-foot{border:2px solid #e74c3c;color:#e74c3c;text-align:center;font-weight:900;padding:4px;margin:6px;border-radius:12px;font-size:9px}
+.label-spuit{width:235px;background:#fff;border-radius:12px;overflow:hidden;border:2px solid #ccc;box-shadow:0 2px 8px rgba(0,0,0,0.3);font-size:9px}
+.ls-head{background:#fff;text-align:center;font-weight:900;padding:6px;font-size:12px;position:relative}
+.badge{position:absolute;right:6px;top:5px;background:#e74c3c;color:#fff;font-size:6px;padding:2px 5px;border-radius:4px}
+.info-cetak{background:#fff;border-left:5px solid #2a9df4;border-radius:8px;padding:8px;margin-bottom:10px;font-size:10px;line-height:1.4}
+@media print{
+ body{background:#fff!important;padding:0!important}
+ .header,.form,.btns,.info-cetak{display:none!important}
+ .area{display:block!important}
+ .label-titrasi,.label-spuit{page-break-inside:avoid;break-inside:avoid;margin-bottom:12px;box-shadow:none;border:1px solid #000}
+}
+</style>
+</head><body>
+<div class="header"><img src="images.png"><br><b style="font-size:10px">HIGH ALERT | Ciputra Hospital Surabaya - v6.0 AUTO CETAK</b></div>
+<div class="form">
+<div class="row"><div><label>Initial Pasien (B)</label><input id="b" value="B"></div><div><label>Nama / No RM (N)</label><input id="n" value="N"></div></div>
+<div class="row"><div><label>BB kg</label><input id="bb" type="number" value="70"></div><div><label>Obat</label><select id="obat" onchange="setObat()"><option value="100">Diltiazem 100 mg / 50 mL (2 mg/mL)</option><option value="8">Norepinephrine 8 mg / 50 mL</option><option value="200">Dopamine 200 mg / 50 mL</option><option value="250">Dobutamine 250 mg / 50 mL</option><option value="4">Epinephrine 4 mg / 50 mL</option><option value="50">Nicardipine 50 mg / 50 mL</option></select></div></div>
+<div class="row"><div><label>Total mg</label><input id="total" value="100 mg"></div><div><label>Konsentrasi</label><input id="kons" value="2 mg/ml"></div></div>
+<div class="row"><div><label>PZ/D5 - Vol</label><select id="pe"><option>PZ/D5 - 50 ml</option><option>PZ - 50 ml</option><option>D5 - 50 ml</option><option>PZ/D5 - 100 ml</option></select></div><div><label>Vol Numerik mL</label><input id="vol" type="number" value="50"></div></div>
+<div class="row"><div><label>Giver</label><input id="giver" placeholder="Nama Giver"></div><div><label>Checker</label><input id="checker" placeholder="Nama Checker"></div></div>
+</div>
+<div class="info-cetak">
+<b>🖨️ KETERANGAN CETAK AUTO:</b><br>
+✅ <b>Cetak Semua</b> = Print browser → Pilih <i>Save as PDF</i> untuk PDF, langsung cetak ke printer label<br>
+✅ <b>Word</b> = Download <b>.doc</b> otomatis → Buka di Microsoft Word → tabel bisa diedit<br>
+✅ <b>PDF</b> = Download <b>.pdf</b> via Print → otomatis nama file: <i>CIHOS_[N]_[Obat]_[Tanggal].pdf</i><br>
+✅ Tabel titrasi otomatis tercetak lengkap dengan rumus, tanggal, Giver/Checker untuk dokumentasi High Alert
+</div>
+<div class="btns">
+<button class="btn b-blue" onclick="buat('titrasi')">Label Titrasi</button>
+<button class="btn b-green" onclick="buat('spuit')">Tambah Label Spuit</button>
+<button class="btn b-red" onclick="document.getElementById('area').innerHTML=''">Bersihkan</button>
+<button class="btn b-green2" onclick="cetakPDF()">Cetak Semua / PDF</button>
+<button class="btn b-orange" onclick="exportWord()">📄 Export Word</button>
+<button class="btn b-purple" onclick="exportExcel()">📊 Export Excel Tabel</button>
+</div>
+<div id="area" class="area"></div>
 <script>
+function setObat(){
+ var v=document.getElementById('obat').value;
+ var map={'100':['100 mg','2 mg/ml'],'8':['8 mg','0.16 mg/ml'],'200':['200 mg','4 mg/ml'],'250':['250 mg','5 mg/ml'],'4':['4 mg','0.08 mg/ml'],'50':['50 mg','1 mg/ml']};
+ if(map[v]){document.getElementById('total').value=map[v][0];document.getElementById('kons').value=map[v][1];}
+}
 function buat(jenis){
-var rm=document.getElementById('rm').value||'-';var nm=document.getElementById('nm').value||'-';var bb=parseFloat(document.getElementById('bb').value)||65;
-var ob=parseFloat(document.getElementById('ob').value)||8;var to=document.getElementById('to').value||'8 mg';var pe=document.getElementById('pe').value||'PZ';
-var vo=document.getElementById('vo').value||'50 mL Spuit';var ta=parseFloat(document.getElementById('ta').value)||0.05;var gv=document.getElementById('gv').value||'-';var ck=document.getElementById('ck').value||'-';
-if(gv=='-'||ck=='-'){alert('Isi Giver & Checker!');return;}
-var volNum=parseFloat(vo)||50;
-var ug=(ob*1000)/volNum;
-var mlTarget=((ta*bb*60)/ug).toFixed(2);
-var now=new Date();var tgl=now.toLocaleString('id-ID');var exp=new Date(now.getTime()+86400000);var tglExp=exp.toLocaleString('id-ID');
-var dosisList=[0.01,0.03,0.05,0.08,0.1,0.15,0.2,0.3,0.5];
-if(ta>0.5){dosisList=[0.05,0.1,0.2,0.3,0.5,0.7,1.0];}
-var tabel='<table><tr><th>Dosis<br>mcg/kg/min</th><th>Kecepatan<br>mL/jam</th></tr>';
-for(var i=0;i<dosisList.length;i++){
- var d=dosisList[i];
- var ml=((d*bb*60)/ug).toFixed(2);
- var cls=(Math.abs(d-ta)<0.001)?' class="highlight"':'';
- tabel+='<tr'+cls+'><td>'+d.toFixed(2)+'</td><td><b>'+ml+'</b></td></tr>';
+ var b=document.getElementById('b').value||'B';var n=document.getElementById('n').value||'N';var bb=parseFloat(document.getElementById('bb').value)||70;
+ var obatSel=document.getElementById('obat');var obatText=obatSel.options[obatSel.selectedIndex].text;
+ var total=document.getElementById('total').value;var konsText=document.getElementById('kons').value;
+ var pe=document.getElementById('pe').value;var vol=parseFloat(document.getElementById('vol').value)||50;
+ var giver=document.getElementById('giver').value||'-';var checker=document.getElementById('checker').value||'-';
+ var obatMg=parseFloat(document.getElementById('obat').value)||100;
+ var mcgPerMl=(obatMg*1000)/vol;
+ var now=new Date();var tgl=now.toLocaleDateString('id-ID')+', '+now.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+ var namaObat=obatText.split(' ')[0];
+ if(jenis==='titrasi'){
+   var dosisList=(obatMg>=100)?[1,2,3,4,5,6,7,8,9,10]:[0.01,0.03,0.05,0.08,0.1,0.15,0.2,0.3,0.5];
+   var rows='';for(var i=0;i<dosisList.length;i++){var d=dosisList[i];var rate=((d*bb*60)/mcgPerMl);rows+='<tr><td>'+d+'</td><td>'+rate.toFixed(2)+'</td></tr>';}
+   var html='<div class="label-titrasi" data-obat="'+namaObat+'"><div class="lt-head">'+namaObat.toUpperCase()+'</div><div class="lt-body"><div class="lt-info"><div>🅱️ '+b+'</div><div>🆔 '+n+'</div><div class="yellow">⚖️ '+bb+' kg</div><div class="blue">👤 Giver: '+giver+'</div><div class="pink">💊 '+total+' - '+konsText+'</div><div class="green">✅ Checker: '+checker+'</div><div>💧 '+pe+'</div><div>🕒 '+tgl+'</div></div><table><tr><th>DOSIS<br>microgram/kgBB/mnt</th><th>RATE<br>ml/jam</th></tr>'+rows+'</table><div style="font-size:7px;margin-top:4px;text-align:center">Kons: '+mcgPerMl.toFixed(1)+' mcg/mL | Rumus: (dosis x BB x 60)/Kons | Ciputra Hospital Surabaya</div><div class="lt-foot">HIGH ALERT<br>DOUBLE CHECK</div></div></div>';
+   var div=document.createElement('div');div.innerHTML=html;document.getElementById('area').appendChild(div.firstChild);
+ }else{
+   var html='<div class="label-spuit"><div class="ls-head">'+namaObat.toUpperCase()+'<span class="badge">HIGH ALERT</span></div><div class="lt-body"><div class="lt-info"><div>🅱️ '+b+'</div><div>🆔 '+n+'</div><div class="yellow">⚖️ '+bb+' kg</div><div class="blue">'+giver+'</div><div class="pink">💊 '+total+' - '+konsText+'</div><div class="green">✅ '+checker+'</div><div>💧 '+pe+'</div><div>🕒 '+tgl+'</div></div></div></div>';
+   var div=document.createElement('div');div.innerHTML=html;document.getElementById('area').appendChild(div.firstChild);
+ }
 }
-tabel+='</table>';
-var rumus='<div style="background:#e3f2fd;padding:4px;border-radius:5px;margin-top:5px;font-size:9px">Rumus: (mcg/kg/min x BB x 60) / Konsentrasi<br>Kons: '+ob+'mg='+ (ob*1000) +'mcg / '+volNum+'mL = <b>'+ug.toFixed(1)+' mcg/mL</b></div>';
-var d=document.createElement('div');d.className='lb';
-if(jenis==='titrasi'){
- d.innerHTML='<div style="background:#d32f2f;color:#fff;text-align:center;font-weight:900;padding:5px;border-radius:6px">⚠️ HIGH ALERT - CIPUTRA HOSPITAL SURABAYA</div><div style="display:flex;justify-content:space-between;font-weight:800;margin-top:4px"><span>RM:'+rm+'</span><span>'+bb+'kg</span></div><b>'+nm+' | '+document.getElementById('rg').value+'</b><br><b>TOTAL: '+to+' dalam '+vo+'</b> + '+pe+'<br><div style="background:#fff176;padding:3px;text-align:center;border-radius:4px;margin:3px 0">🎯 TARGET: <b>'+ta+' = '+mlTarget+' mL/jam</b></div>'+tabel+rumus+'<hr style="margin:6px 0"><div style="font-size:9px">⏰ Buat:'+tgl+' | Exp:'+tglExp+'<br>👩‍⚕️ Giver:'+gv+' | 👀 Checker:'+ck+'<br>📦 Oplosan: '+to+' + '+pe+' ad '+vo+'</div><div style="border:2px solid #d32f2f;color:#d32f2f;text-align:center;border-radius:6px;font-weight:900;margin-top:5px;padding:3px">✅ DOUBLE CHECK OK</div>';
-}else{
- d.innerHTML='<div style="background:#d32f2f;color:#fff;text-align:center;font-weight:900;padding:5px;border-radius:6px">⚠️ HIGH ALERT - SPOIT</div>RM:'+rm+' - '+nm+'<br><b>'+to+' dalam '+vo+'</b> + '+pe+'<br>🎯 '+ta+' mcg/kg/min = <b>'+mlTarget+' mL/jam</b><br>⏰ '+tgl+' | Exp:'+tglExp+'<br>'+gv+' | '+ck;
+function cetakPDF(){
+ if(document.getElementById('area').innerHTML.trim()==''){alert('Buat label dulu! Klik Label Titrasi');return;}
+ var b=document.getElementById('b').value||'B';var obat=document.getElementById('obat').options[document.getElementById('obat').selectedIndex].text.split(' ')[0];
+ var tgl=new Date().toISOString().slice(0,10);
+ document.title='CIHOS_'+b+'_'+obat+'_'+tgl;
+ window.print();
+ setTimeout(function(){document.title='CIHOS v6.0 - Ciputra Hospital';},1000);
 }
-document.getElementById('area').appendChild(d);d.scrollIntoView({behavior:'smooth'});
+function exportWord(){
+ var area=document.getElementById('area');if(area.innerHTML.trim()==''){alert('Buat label dulu!');return;}
+ var b=document.getElementById('b').value||'B';var obat=document.getElementById('obat').options[document.getElementById('obat').selectedIndex].text.split(' ')[0];
+ var tgl=new Date().toISOString().slice(0,10);
+ var header="<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>CIHOS</title><style>table{border-collapse:collapse}td,th{border:1px solid #000;padding:4px} .label-titrasi{margin-bottom:15px}</style></head><body><h2 style='text-align:center'>CIPUTRA HOSPITAL SURABAYA - CIHOS High Alert Label</h2><p>Tanggal Cetak: "+new Date().toLocaleString('id-ID')+" | Pasien: "+b+" | Obat: "+obat+"</p><hr>";
+ var footer="<hr><p style='font-size:9px'>Dicetak otomatis dari https://alfian619.github.io/cihos-high-alert/ - SOP 50mL PZ/D5 + Double Check</p></body></html>";
+ var content=header+area.innerHTML+footer;
+ var blob=new Blob(['\ufeff',content],{type:'application/msword'});
+ var url=URL.createObjectURL(blob);
+ var a=document.createElement('a');a.href=url;a.download='CIHOS_'+b+'_'+obat+'_'+tgl+'.doc';document.body.appendChild(a);a.click();setTimeout(function(){document.body.removeChild(a);URL.revokeObjectURL(url);},0);
 }
-</script></body></html>
+function exportExcel(){
+ var area=document.getElementById('area');if(area.innerHTML.trim()==''){alert('Buat label dulu!');return;}
+ var b=document.getElementById('b').value||'B';var obat=document.getElementById('obat').options[document.getElementById('obat').selectedIndex].text.split(' ')[0];
+ var tgl=new Date().toISOString().slice(0,10);
+ var tables=area.querySelectorAll('table');
+ if(tables.length==0){alert('Buat Label Titrasi dulu (yang ada tabel)!');return;}
+ var csv="CIHOS - Ciputra Hospital Surabaya\nPasien: "+b+" | Obat: "+obat+" | Tanggal: "+new Date().toLocaleString('id-ID')+"\n\n";
+ tables.forEach(function(tbl,i){
+   csv+="Label "+(i+1)+" - "+obat+"\n";
+   var rows=tbl.querySelectorAll('tr');
+   rows.forEach(function(r){
+     var cols=r.querySelectorAll('th,td');
+     var line=[];cols.forEach(function(c){line.push(c.innerText.replace(/\n/g,' ').trim());});
+     csv+=line.join(";")+"\n";
+   });
+   csv+="\n";
+ });
+ var blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
+ var url=URL.createObjectURL(blob);
+ var a=document.createElement('a');a.href=url;a.download='CIHOS_'+b+'_'+obat+'_'+tgl+'.csv';document.body.appendChild(a);a.click();setTimeout(function(){document.body.removeChild(a);URL.revokeObjectURL(url);},0);
+}
+setObat();
+</script>
+</body></html>
