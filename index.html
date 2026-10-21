@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CIHOS - Ciputra Hospital Surabaya</title>
-<style>
-body{margin:0;background:#0a2f4a;padding:10px;font-family:Arial,sans-serif;color:#0a2f4a}
-.c{background:#fff;border-radius:14px;padding:12px;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
-.logo-box{display:flex;justify-content:center;align-items:center;background:#fff;padding:15px}
-.btn{border:none;border-radius:22px;padding:14px;color:#fff;font-weight:900;width:100%;margin-top:8px;font-size:13px;cursor:pointer}
-.blue{background:#2a7de1}.green{background:#1a9e5e}.red{background:#e23a3a}
-.lb{background:#fff;border:3px solid #d32f2f;border-radius:10px;padding:10px;margin:10px 0;width:100%;font-size:12px;line-height:1.5;box-sizing:border-box}
-label{font-weight:800;font-size:11px;display:block;margin-top:8px}
+<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CIHOS - Ciputra Hospital Surabaya</title><style>body{margin:0;background:#0a2f4a;padding:12px;font-family:Arial}.box{background:#fff;border-radius:14px;padding:14px;margin-bottom:12px;text-align:center}.btn{border:none;border-radius:25px;padding:14px;width:100%;margin-top:8px;color:#fff;font-weight:900}.blue{background:#2a7de1}.green{background:#1a9e5e}.red{background:#e23a3a}.lb{background:#fff;border:3px solid #d32f2f;border-radius:10px;padding:10px;margin-top:10px;text-align:left;font-size:12px}input,select{width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;margin-top:4px;box-sizing:border-box}.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}label{font-weight:800;font-size:11px;display:block;margin-top:8px;text-align:left}</style></head><body>
+<div class="box"><img src="images.png" style="height:65px;max-width:90%"><br><b style="font-size:11px">ICU - CIHOS v4.1 FIX BIRU | SOP 50mL PZ/D5 + Tgl/Jam AUTO</b></div>
+<div class="box" style="text-align:left"><b>👤 PASIEN</b><label>No RM</label><input id="rm" value="00123456"><label>Nama</label><input id="nm" value="John Doe"><div class="row"><div><label>BB</label><input id="bb" type="number" value="65"></div><div><label>Ruang</label><input id="rg" value="ICU Bed 04"></div></div></div>
+<div class="box" style="text-align:left"><b>💊 OBAT</b><select id="ob"><option value="8">Norepinephrine 8 mg</option><option value="200">Dopamine 200 mg</option></select><div class="row"><div><label>Total</label><input id="to" value="8 mg"></div><div><label>PZ/D5</label><select id="pe"><option>PZ</option><option>D5</option></select></div></div><div class="row"><div><label>Vol</label><select id="vo"><option>50 mL Spuit</option></select></div><div><label>Target</label><input id="ta" type="number" value="0.05" step="0.01"></div></div><label>Giver</label><input id="gv" value="a"><label>Checker</label><input id="ck" value="b"></div>
+<div class="box"><button class="btn blue" onclick="buat()">+ Label Titrasi</button><button class="btn green" onclick="buat()">💉 Label Spuit</button><button class="btn red" onclick="document.getElementById('area').innerHTML=''">🗑️ Hapus</button></div>
+<div id="area"></div>
+<script>function buat(){var rm=document.getElementById('rm').value;var nm=document.getElementById('nm').value;var bb=parseFloat(document.getElementById('bb').value)||65;var ob=parseFloat(document.getElementById('ob').value)||8;var to=document.getElementById('to').value;var pe=document.getElementById('pe').value;var vo=document.getElementById('vo').value;var ta=parseFloat(document.getElementById('ta').value)||0.05;var gv=document.getElementById('gv').value;var ck=document.getElementById('ck').value;var ug=(ob*1000)/50;var ml=((ta*bb*60)/ug).toFixed(2);var tgl=new Date().toLocaleString('id-ID');var d=document.createElement('div');d.className='lb';d.innerHTML='<div style="background:#d32f2f;color:#fff;text-align:center;font-weight:900;padding:5px;border-radius:6px">⚠️ HIGH ALERT - CIPUTRA HOSPITAL</div>RM:'+rm+' - '+nm+'<br><b>'+to+' dalam '+vo+'</b> + '+pe+'<br>'+ta+' = <b>'+ml+' mL/jam</b><br>'+tgl+'<br>'+gv+' | '+ck;document.getElementById('area').appendChild(d)}</script></body></html>
