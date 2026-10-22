@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CIHOS v8.3 Dual Logo - Ciputra x LARSI</title>
+<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CIHOS v8.3 Dual Logo - Ciputra x LARSI - FIX TANGGAL</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#0f5a6d;padding:10px;font-family:Arial,sans-serif}
@@ -13,10 +13,11 @@ input,select{width:100%;padding:9px;border:1.5px solid #a0c4c4;border-radius:8px
 .btn{border:2px solid #fff;border-radius:12px;padding:12px;font-weight:900;color:#fff;cursor:pointer;font-size:11px}
 .b-blue{background:#2a9df4}.b-green{background:#2ecc71}.b-red{background:#e74c3c}.b-green2{background:#1abc9c}
 .area{display:flex;flex-wrap:wrap;gap:10px}
-.label-titrasi{width:250px;background:#fff;border-radius:14px;overflow:hidden;border:2px solid #e0a070;box-shadow:0 2px 8px rgba(0,0,0,.2);font-size:9px;color:#000}
+.label-titrasi{width:260px;background:#fff;border-radius:14px;overflow:hidden;border:2px solid #e0a070;box-shadow:0 2px 8px rgba(0,0,0,.2);font-size:9px;color:#000}
 .lt-head{background:#e9c39a;text-align:center;font-weight:900;padding:8px;font-size:11px}
 .lt-body{padding:6px}.lt-info{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:5px}
 .lt-info div{background:#f5f5f5;padding:3px 5px;border-radius:6px;font-size:8px}
+.lt-info .date-box{background:#fef9c3;border:1.5px solid #eab308;font-weight:900;font-size:8px}
 table{width:100%;border-collapse:collapse;margin-top:4px}th,td{border:1px solid #999;padding:3px;text-align:center;font-size:8px}th{background:#f0f0f0;font-size:7px}
 .lt-foot{border:2px solid #e74c3c;color:#e74c3c;text-align:center;font-weight:900;padding:4px;margin:6px;border-radius:10px;font-size:9px}
 @media print{body{background:#fff!important;padding:0!important}.header,.form,.btns{display:none!important}.area{display:block!important}.label-titrasi{box-shadow:none;border:1px solid #000;margin-bottom:10px;break-inside:avoid}}
@@ -64,7 +65,27 @@ function initObat(){var s=document.getElementById('obat');s.innerHTML='';obatLis
 function getObatById(id){return obatList.find(o=>o.id===id)}
 function setObat(){var sel=document.getElementById('obat');if(!sel.value)return;var o=getObatById(sel.value);if(!o)return;document.getElementById('total').value=o.totalTxt;document.getElementById('kons').value=o.kons;document.getElementById('satuan').value=o.satuan;document.getElementById('vol').value=o.vol;var pe=document.getElementById('pe');if(o.id==='vaso')pe.value='PZ/D5 - 20 ml';else if(o.id==='ne'||o.id==='epi')pe.value='PZ/D5 - 40 ml';else pe.value='PZ/D5 - 50 ml';}
 function hitungRate(o,d,bb,vol){var c=(o.id==='heparin'||o.id==='vaso')?(o.mg/vol):(o.mg*1000/vol);if(o.isNano)return (d/1000*bb*60)/c;if(o.isMcqMin||o.isUnitMin)return d*60/c;if(o.isUnitJam)return d/c;if(o.isMcqKgJam)return (d*bb)/c;return (d*bb*60)/c}
-function buat(jenis){var b=document.getElementById('b').value||'B',n=document.getElementById('n').value||'N',bb=parseFloat(document.getElementById('bb').value)||70,o=getObatById(document.getElementById('obat').value),pe=document.getElementById('pe').value,vol=parseFloat(document.getElementById('vol').value)||o.vol,g=document.getElementById('giver').value||'-',ch=document.getElementById('checker').value||'-',tgl=new Date().toLocaleString('id-ID',{hour:'2-digit',minute:'2-digit'}),nama=o.nama.toUpperCase();var area=document.getElementById('area');if(jenis==='titrasi'){var rows='';o.dosis.forEach(d=>{rows+=`<tr><td>${d}</td><td>${hitungRate(o,d,bb,vol).toFixed(2)}</td></tr>`});var h=`<div class="label-titrasi"><div class="lt-head">${nama}</div><div class="lt-body"><div class="lt-info"><div>🅱️ ${b}</div><div>🆔 ${n}</div><div>⚖️ ${bb} kg</div><div>👤 ${g}</div><div>💊 ${o.totalTxt}</div><div>✅ ${ch}</div><div>💧 ${pe}</div><div>🕒 ${tgl}</div></div><table><tr><th>DOSIS<br>${o.satuan}</th><th>RATE ml/jam</th></tr>${rows}</table><div class="lt-foot">HIGH ALERT<br>DOUBLE CHECK</div></div></div>`;area.insertAdjacentHTML('beforeend',h)}else{var h=`<div class="label-titrasi"><div class="lt-head">${nama} - SPUIT</div><div class="lt-body"><div class="lt-info"><div>🅱️ ${b}</div><div>🆔 ${n}</div><div>⚖️ ${bb} kg</div><div>💊 ${o.totalTxt}</div><div>💧 ${pe} - ${o.kons}</div><div>🕒 ${tgl}</div></div><div style="text-align:center;background:#e3f2fd;padding:6px;border-radius:6px">Awal: ${o.dosis[0]} ${o.satuan} = <b>${hitungRate(o,o.dosis[0],bb,vol).toFixed(2)} ml/jam</b></div><div class="lt-foot">HIGH ALERT</div></div></div>`;area.insertAdjacentHTML('beforeend',h)}}
+// === FIX TANGGAL - BARU ===
+function getTanggalJam(){
+  const now=new Date();
+  const tgl=now.toLocaleDateString('id-ID',{day:'2-digit',month:'2-digit',year:'numeric'});
+  const jam=now.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit',hour12:false}).replace(':','.');
+  return {tgl, jam, lengkap: tgl + ' ' + jam};
+}
+function buat(jenis){
+  var b=document.getElementById('b').value||'B',n=document.getElementById('n').value||'N',bb=parseFloat(document.getElementById('bb').value)||70,o=getObatById(document.getElementById('obat').value),pe=document.getElementById('pe').value,vol=parseFloat(document.getElementById('vol').value)||o.vol,g=document.getElementById('giver').value||'-',ch=document.getElementById('checker').value||'-',
+  tj=getTanggalJam(),tgl= tj.lengkap, tglOnly=tj.tgl, jamOnly=tj.jam,
+  nama=o.nama.toUpperCase();
+  var area=document.getElementById('area');
+  if(jenis==='titrasi'){
+    var rows='';o.dosis.forEach(d=>{rows+=`<tr><td>${d}</td><td>${hitungRate(o,d,bb,vol).toFixed(2)}</td></tr>`});
+    var h=`<div class="label-titrasi"><div class="lt-head">${nama}</div><div class="lt-body"><div class="lt-info"><div>🅱️ ${b}</div><div>🆔 ${n}</div><div>⚖️ ${bb} kg</div><div>👤 ${g}</div><div>💊 ${o.totalTxt}</div><div>✅ ${ch}</div><div>💧 ${pe}</div><div class="date-box">📅 ${tgl}</div></div><table><tr><th>DOSIS<br>${o.satuan}</th><th>RATE ml/jam</th></tr>${rows}</table><div class="lt-foot">HIGH ALERT<br>DOUBLE CHECK</div></div></div>`;
+    area.insertAdjacentHTML('beforeend',h)
+  }else{
+    var h=`<div class="label-titrasi"><div class="lt-head">${nama} - SPUIT</div><div class="lt-body"><div class="lt-info"><div>🅱️ ${b}</div><div>🆔 ${n}</div><div>⚖️ ${bb} kg</div><div>💊 ${o.totalTxt}</div><div>💧 ${pe} - ${o.kons}</div><div class="date-box">📅 ${tglOnly}<br>🕒 ${jamOnly}</div></div><div style="text-align:center;background:#e3f2fd;padding:6px;border-radius:6px">Awal: ${o.dosis[0]} ${o.satuan} = <b>${hitungRate(o,o.dosis[0],bb,vol).toFixed(2)} ml/jam</b></div><div class="lt-foot">HIGH ALERT</div></div></div>`;
+    area.insertAdjacentHTML('beforeend',h)
+  }
+}
 document.addEventListener('DOMContentLoaded',initObat);
 window.addEventListener('load',initObat);
 </script>
