@@ -59,7 +59,7 @@ const obatList=[
 {id:'ne',nama:'Norepinephrine (NE)',mg:8,vol:50,kons:'0.16 mg/ml (160 mcg/ml)',satuan:'nanogram/kgBB/mnt',dosis:[25,50,75,100,125,150,175,200,225,250,275,300],isNano:true,totalTxt:'8 mg / 50 ml'},
 {id:'epi',nama:'Epinephrine (EPI)',mg:8,vol:50,kons:'0.16 mg/ml (160 mcg/ml)',satuan:'nanogram/kgBB/mnt',dosis:[25,50,75,100,125,150,175,200,225,250,275,300],isNano:true,totalTxt:'8 mg / 50 ml'},
 {id:'vaso',nama:'Vasopressin',mg:20,vol:20,kons:'1 unit/ml',satuan:'unit/mnt',dosis:[0.01,0.02,0.03,0.04,0.06,0.08],isUnitMin:true,totalTxt:'20 unit / 20 ml'},
-{id:'heparin',nama:'Heparin',mg:5000,vol:50,kons:'100 unit/ml',satuan:'unit/jam',dosis:[500,600,700,800,1000,1200,1500,2000],isUnitJam:true,totalTxt:'5000 unit / 50 ml'}
+{id:'heparin',nama:'Heparin',mg:5000,vol:50,kons:'100 unit/ml',satuan:'unit/jam',dosis:[100,200,300,400,500,600,700,800],isUnitJam:true,totalTxt:'5000 unit / 50 ml'}
 ];
 function initObat(){var s=document.getElementById('obat');s.innerHTML='';obatList.forEach(o=>{var op=document.createElement('option');op.value=o.id;op.text=o.nama+' - '+o.totalTxt;s.appendChild(op)});s.value='heparin';setObat();}
 function getObatById(id){return obatList.find(o=>o.id===id)}
