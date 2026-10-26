@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Obat High Alert Ciputra Hospital Surabaya</title>
+<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Obat High Alert Ciputra Hospital Surabaya - Revisi Lengkap</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#0f5a6d;padding:10px;font-family:Arial,sans-serif}
@@ -32,7 +32,7 @@ table{width:100%;border-collapse:collapse;margin-top:4px}th,td{border:1px solid 
   @page{size:A4 portrait;margin:10mm}
 }
 </style></head><body>
-<div class="print-header"><h2> ⚠️ OBAT HIGH ALERT ⚠️- Ciputra Hospital Surabaya</h2><p id="printDate"></p></div>
+<div class="print-header"><h2>OBAT HIGH ALERT - Ciputra Hospital Surabaya</h2><p id="printDate"></p></div>
 <div class="header">
   <img src="images.png" alt="Ciputra Hospital" onerror="this.src='https://alfian619.github.io/cihos/images.png'">
   <div class="badge"><b>OBAT HIGH ALERT<br>Ciputra Hospital Surabaya</b></div>
@@ -68,13 +68,11 @@ const obatList=[
 {id:'heparin',nama:'Heparin',mg:5000,vol:50,kons:'100 unit/ml',satuan:'unit/jam',dosis:[100,200,300,400,500,600,700,800],isUnitJam:true,totalTxt:'5000 unit / 50 ml'},
 {id:'amio150',nama:'Amiodaron',mg:150,vol:50,kons:'3 mg/ml',satuan:'mg/jam',dosis:[4,8,12.5,25,50,75,100,125],isMgJam:true,totalTxt:'150 mg / 50 ml'},
 {id:'amio300',nama:'Amiodaron',mg:300,vol:50,kons:'6 mg/ml',satuan:'mg/jam',dosis:[4,8,12.5,25,50,75,100,125],isMgJam:true,totalTxt:'300 mg / 50 ml'},
-{id:'cedocard',nama:'Cedocard (ISDN)',mg:10,vol:50,kons:'0.2 mg/ml (200 mcg/ml)',satuan:'mg/jam',dosis:[1,2,3,5,7,10,15,20],isMgJam:true,totalTxt:'10 mg / 50 ml'},
-{id:'fentanyl',nama:'Fentanyl',mg:0.1,vol:10,kons:'10 mcg/ml',satuan:'mcg/kgBB/jam',dosis:[0.5,1,1.5,2,2.5,3],isMcqKgJam:true,totalTxt:'100 mcg / 10 ml'},
-{id:'sufentanil',nama:'Sufentanil',mg:0.05,vol:50,kons:'1 mcg/ml',satuan:'mcg/kgBB/jam',dosis:[0.1,0.2,0.3,0.5,0.7,1.0],isMcqKgJam:true,totalTxt:'50 mcg / 50 ml'}
+{id:'cedocard',nama:'Cedocard (ISDN)',mg:10,vol:50,kons:'0.2 mg/ml (200 mcg/ml)',satuan:'mg/jam',dosis:[1,2,3,5,7,10,15,20],isMgJam:true,totalTxt:'10 mg / 50 ml'}
 ];
 function initObat(){var s=document.getElementById('obat');s.innerHTML='';obatList.forEach(o=>{var op=document.createElement('option');op.value=o.id;op.text=o.nama+' - '+o.totalTxt;s.appendChild(op)});s.value='amio150';setObat();}
 function getObatById(id){return obatList.find(o=>o.id===id)}
-function setObat(){var sel=document.getElementById('obat');if(!sel.value)return;var o=getObatById(sel.value);if(!o)return;document.getElementById('total').value=o.totalTxt;document.getElementById('kons').value=o.kons;document.getElementById('satuan').value=o.satuan;document.getElementById('vol').value=o.vol;var pe=document.getElementById('pe');if(o.id==='vaso')pe.value='PZ/D5 - 20 ml';else if(o.id==='fentanyl')pe.value='PZ/D5 - 10 ml';else if(o.id==='ne'||o.id==='epi')pe.value='PZ/D5 - 40 ml';else pe.value='PZ/D5 - 50 ml';}
+function setObat(){var sel=document.getElementById('obat');if(!sel.value)return;var o=getObatById(sel.value);if(!o)return;document.getElementById('total').value=o.totalTxt;document.getElementById('kons').value=o.kons;document.getElementById('satuan').value=o.satuan;document.getElementById('vol').value=o.vol;var pe=document.getElementById('pe');if(o.id==='vaso')pe.value='PZ/D5 - 20 ml';else if(o.id==='ne'||o.id==='epi')pe.value='PZ/D5 - 40 ml';else pe.value='PZ/D5 - 50 ml';}
 function hitungRate(o,d,bb,vol){
   var volAktual=vol; try{var peTxt=document.getElementById('pe').value; var m=peTxt.match(/(\d+)\s*ml/i); if(m) volAktual=parseFloat(m[1]);}catch(e){}
   var c_mg=o.mg/volAktual;
